@@ -1,6 +1,13 @@
 import singup from "../../image/singup.jpg";
+import { userCreate } from "../../redux/Feature/userVerify/userSlice";
+import { useAppDispatch } from "../../redux/hooks";
+
+
 
 const Singup = () => {
+    const dispatch = useAppDispatch()
+
+
   const handleSingup = (event: React.SyntheticEvent) => {
     event.preventDefault();
     const target = event.target as typeof event.target & {
@@ -12,8 +19,13 @@ const Singup = () => {
     const email = target.email.value;
     const password = target.password.value;
     console.log(name, email, password);
+    dispatch(userCreate({email: email, password: password}))
   };
 
+
+
+
+  
   return (
     <div className="flex items-center">
       <div className=" w-full md:w-1/2 mt-10">

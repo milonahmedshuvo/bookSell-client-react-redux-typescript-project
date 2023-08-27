@@ -1,10 +1,10 @@
 import { configureStore } from '@reduxjs/toolkit'
 import { api } from './Feature/api/apiSlice'
-
+import UserReducer from "./Feature/userVerify/userSlice"
 
 export const store = configureStore({
     reducer: {
-
+        users: UserReducer,
         [api.reducerPath] : api.reducer
     },
 
