@@ -1,0 +1,90 @@
+[
+    {
+      "image":"https://m.media-amazon.com/images/I/51AC2+BVowL._SX307_BO1,204,203,200_.jpg",  
+      "title": "Iron Flame",
+      "author": "Rebecca Yarros",
+      "genre": "movie",
+      "publication": "07/11/1997",
+      "comments": []
+    },
+    {
+      "image":"https://m.media-amazon.com/images/I/51Hfv2MfNGL._SX331_BO1,204,203,200_.jpg",  
+      "title": "Rich Dad Poor Dad",
+      "author": "Robert T. Kiyosaki",
+      "genre": "Business & Money",
+      "publication": "22/02/2018",
+      "comments": []
+    },
+    {
+      "image":"https://m.media-amazon.com/images/I/614xaw4htML._SX461_BO1,204,203,200_.jpg",  
+      "title": "The Art of War",
+      "author": "Sun Tzu",
+      "genre": "Economics",
+      "publication": "24/04/2016",
+      "comments": []
+    },
+    {
+      "image":"https://m.media-amazon.com/images/I/41zRP4lQnbL._SX327_BO1,204,203,200_.jpg",  
+      "title": "The First-Time Manager",
+      "author": " Jim McCormick",
+      "genre": "Human Resources",
+      "publication": "10/09/2019",
+      "comments": []
+    },
+    {
+      "image":"https://m.media-amazon.com/images/I/41rS5Qn-scL._SX331_BO1,204,203,200_.jpg",  
+      "title": "Money. Wealth. Life Insurance",
+      "author": "Jake Thompson",
+      "genre": "Insurance",
+      "publication": "25/07/2022",
+      "comments": []
+    },
+    {
+      "image":"https://images-na.ssl-images-amazon.com/images/I/61R4llNQbkL._AC_UL600_SR600,400_.jpg",  
+      "title": "the Changing World Order",
+      "author": "Ray Dalio",
+      "genre": "International",
+      "publication": "20/01/2008",
+      "comments": []
+    },
+    {
+      "image":"https://m.media-amazon.com/images/I/51jRBz6Ug3L.jpg",  
+      "title": "The Psychology of Money",
+      "author": "Morgan Housel",
+      "genre": "Investing",
+      "publication": "15/06/2004",
+      "comments": []
+    },
+    {
+      "image":"https://m.media-amazon.com/images/I/410hiaPGyCL._SX348_BO1,204,203,200_.jpg",  
+      "title": "Cracking the Coding Interview",
+      "author": " Gayle Laakmann McDowell",
+      "genre": "Job Hunting & Careers",
+      "publication": "28/01/2002",
+      "comments": []
+    },
+    {
+      "image":"https://m.media-amazon.com/images/I/41maJvnQM+L._SX331_BO1,204,203,200_.jpg",  
+      "title": "What Color Is Your Parachute",
+      "author": " Richard N. Bolles",
+      "genre": "Job Hunting & Careers",
+      "publication": "05/12/2010",
+      "comments": []
+    },
+    {
+      "image":"https://m.media-amazon.com/images/I/31rEWG77ARL._SX331_BO1,204,203,200_.jpg",  
+      "title": "System Design Interview",
+      "author": "Alex Xu",
+      "genre": "Job Hunting & Careers",
+      "publication": "01/12/2000",
+      "comments": []
+    },
+    {
+      "image":"https://m.media-amazon.com/images/I/41CUbGSthHL._SX348_BO1,204,203,200_.jpg",  
+      "title": "",
+      "author": "Marc Patrick Cosentino",
+      "genre": "",
+      "publication": "",
+      "comments": []
+    }
+  ]
