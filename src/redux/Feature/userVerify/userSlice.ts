@@ -45,7 +45,7 @@ export const userCreate = createAsyncThunk("users/createuser", async ({email, pa
 
 export const userlogin = createAsyncThunk("users/userlogin", async ({email, password}:emailPasswordTypes) =>{
        const data = await signInWithEmailAndPassword(auth, email, password)
-       return data.user
+       return {email: data.user.email, displayName:data.user.displayName}
 })
 
 
@@ -64,7 +64,12 @@ const userSlice = createSlice({
         },
         setuserName: (state, action) => {
             state.user.name= action.payload
+        },
+        userlogout: (state) =>{
+            state.user.email = null
+            state.user.name = null
         }
+
     },
     extraReducers:  (builder) => {
         builder.addCase(userCreate.pending, (state) => {
@@ -96,5 +101,5 @@ const userSlice = createSlice({
 
 
 
-export const {setLoading, setuserEmail, setuserName} = userSlice.actions
+export const {setLoading, setuserEmail, setuserName, userlogout} = userSlice.actions
 export default userSlice.reducer

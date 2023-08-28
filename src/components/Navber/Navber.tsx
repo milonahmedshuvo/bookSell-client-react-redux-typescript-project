@@ -1,9 +1,23 @@
 import { Link } from 'react-router-dom';
+import { useAppDispatch, useAppSelector } from '../../redux/hooks';
+import { auth } from '../../firebase/firebase.config';
+import { signOut } from 'firebase/auth';
+import { userlogout } from '../../redux/Feature/userVerify/userSlice';
 
 
 const Navber = () => {
+const {user} = useAppSelector((state) => state.users)
+const dispatch = useAppDispatch()
 
+const handleSingout = () =>{
+  
+  signOut(auth).then(() => {
+    // Sign-out successful.
+    dispatch(userlogout())
+  })
+  
 
+}
 
 
 
@@ -52,9 +66,20 @@ const Navber = () => {
 
         <div className="navbar-end">
           
-             <Link to="" className='mr-3'> All Books</Link>
-             <Link to="/singup" className='mr-3'> Signup</Link>
+             <Link to="/allbooks" className='mr-3'> All Books</Link>
+
+            {
+              !user.email && <>
+                <Link to="/singup" className='mr-3'> Signup</Link>
              <Link to="/singin" className='mr-4'> Signin</Link>
+              </>
+            }
+             
+             {
+              user.email && <>
+               <Link to="" onClick={handleSingout} className='mr-4'> Singout</Link>
+              </>
+             }
 
 
         </div>

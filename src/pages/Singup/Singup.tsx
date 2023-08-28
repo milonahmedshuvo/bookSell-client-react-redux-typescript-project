@@ -6,6 +6,7 @@ import { useAppDispatch } from "../../redux/hooks";
 
 const Singup = () => {
     const dispatch = useAppDispatch()
+    
 
 
   const handleSingup = (event: React.SyntheticEvent) => {
@@ -22,6 +23,8 @@ const Singup = () => {
     dispatch(userCreate({email: email, password: password, name: name}))
     
   };
+
+  
 
 
 
