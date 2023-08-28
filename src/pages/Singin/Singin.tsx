@@ -1,7 +1,9 @@
 import singin from "../../image/singin.jpg";
+import { userlogin } from "../../redux/Feature/userVerify/userSlice";
+import { useAppDispatch } from "../../redux/hooks";
 
 const Singin = () => {
-
+const dispatch = useAppDispatch()
     
     const handleSingup = (event: React.SyntheticEvent) => {
         event.preventDefault();
@@ -12,6 +14,7 @@ const Singin = () => {
         const email = target.email.value;
         const password = target.password.value;
         console.log( email, password);
+        dispatch(userlogin({email:email, password: password}))
       };
 
 

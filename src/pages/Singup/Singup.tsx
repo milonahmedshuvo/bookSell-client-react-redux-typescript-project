@@ -19,13 +19,14 @@ const Singup = () => {
     const email = target.email.value;
     const password = target.password.value;
     console.log(name, email, password);
-    dispatch(userCreate({email: email, password: password}))
+    dispatch(userCreate({email: email, password: password, name: name}))
+    
   };
 
 
 
 
-  
+
   return (
     <div className="flex items-center">
       <div className=" w-full md:w-1/2 mt-10">
