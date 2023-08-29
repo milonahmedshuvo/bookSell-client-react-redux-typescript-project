@@ -19,8 +19,8 @@ function App() {
 
       onAuthStateChanged(auth, (user) => {
         if (user) {  
-          console.log("on auth state changed:",user, user.displayName)
-          console.log("displayName:", user.displayName)
+          // console.log("on auth state changed:",user, user.displayName)
+          // console.log("displayName:", user.displayName)
           dispatch(setLoading(false))
           dispatch(setuserEmail(user.email))
           dispatch(setuserName(user.displayName))                              
