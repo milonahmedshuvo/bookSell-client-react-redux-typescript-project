@@ -1,13 +1,25 @@
 import React from "react";
-import { useGetAllBooksQuery } from "../../redux/Feature/api/apiSlice";
-import { setGenre, setPublicationYear, setSearchData } from "../../redux/Feature/book/bookSlice";
+import {
+  useGetAllBooksQuery,
+  useGetGenteQuery,
+  useGetPublicationYearQuery,
+} from "../../redux/Feature/api/apiSlice";
+import {
+  setGenre,
+  setPublicationYear,
+  setSearchData,
+} from "../../redux/Feature/book/bookSlice";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import { IBooks } from "../../types/globalTypes";
 import Allbook from "./Allbook";
 
 const Allbooks = () => {
   const { data, isLoading } = useGetAllBooksQuery(undefined);
-  const { search } = useAppSelector((state) => state.books);
+  const { data:years } = useGetPublicationYearQuery(undefined);
+  const { data: genres } = useGetGenteQuery(undefined);
+
+
+  const { search, publicationYear, genre } = useAppSelector((state) => state.books);
   if (isLoading) {
     return <p>Loading....</p>;
   }
@@ -21,21 +33,19 @@ const Allbooks = () => {
     dispatch(setSearchData(search));
   };
 
-  const handleSelect = (event:React.SyntheticEvent) => {
-    event.preventDefault()
+  const handleSelect = (event: React.SyntheticEvent) => {
+    event.preventDefault();
     const target = event.target as typeof event.target & {
-      publicationYear: {value: string},
-      genre: {value: string}
-    }
+      publicationYear: { value: string };
+      genre: { value: string };
+    };
 
-    const publicationYear = target.publicationYear.value
-    const genre = target.genre.value
-    console.log(publicationYear, genre)
-    dispatch(setPublicationYear(publicationYear))
-    dispatch(setGenre(genre))
-  }
-
-  
+    const publicationYear = target.publicationYear.value;
+    const genre = target.genre.value;
+    console.log(publicationYear, genre);
+    dispatch(setPublicationYear(publicationYear));
+    dispatch(setGenre(genre));
+  };
 
   const bookAuthor = data.filter((book: IBooks) => book.author === search);
   const bookTitle = data.filter((book: IBooks) => book.title === search);
@@ -62,8 +72,20 @@ const Allbooks = () => {
     products = data;
   }
 
-  console.log("products", products);
 
+  const bookyears = data.filter((book: { publication: any; }) => book.publication === publicationYear)
+  const booksGenre = data.filter((book: { genre: string | null; }) => book.genre === genre)
+ 
+   if(bookyears.filter((e: { publication: string | null; }) => e.publication === publicationYear).length > 0 ){
+         products =bookyears
+   }else if (bookGenre) {
+         products = booksGenre
+   }
+
+
+
+
+  console.log("products", products);
   return (
     <div>
       <div className="mt-6">
@@ -82,26 +104,74 @@ const Allbooks = () => {
         </form>
 
         {/* select  */}
-        <form onSubmit={handleSelect} className=" w-full md:w-1/3 mt-4 mb-14 ml-2 flex ">
-         
-            <select className="select select-bordered w-full md:w-2/4" name="publicationYear">
-              <option disabled selected>
-                Publication year
-              </option>
-              <option>Han Solo</option>
-              <option>Greedo</option>
-            </select>
+        <form
+          onSubmit={handleSelect}
+          className=" w-full md:w-1/3 mt-4 mb-14 ml-2 flex "
+        >
+          <select
+            className="select select-bordered w-full md:w-2/4"
+            name="publicationYear"
+          >
+            <option disabled selected>
+              Publication year
+            </option>
+            {years?.map(
+              (el: {
+                publication:
+                  | string
+                  | number
+                  | boolean
+                  | React.ReactElement<
+                      any,
+                      string | React.JSXElementConstructor<any>
+                    >
+                  | Iterable<React.ReactNode>
+                  | React.ReactPortal
+                  | null
+                  | undefined;
+              }) => (
+                <option> {el.publication} </option>
+              )
+            )}
 
-            <select className="select select-bordered w-full md:w-2/4 ml-1" name="genre">
-              <option disabled selected>
-                Genre
-              </option>
-              <option>Han Solo</option>
-              <option>Greedo</option>
-            </select>
-         
+            {/* <option>Han Solo</option>
+              <option>Greedo</option> */}
+          </select>
 
-          <input type="submit" value="Filter" className="bg-purple-400 py-1 text-white rounded text-center ml-1 px-4" />
+          <select
+            className="select select-bordered w-full md:w-2/4 ml-1"
+            name="genre"
+          >
+            <option disabled selected>
+              Genre
+            </option>
+
+            {genres?.map(
+              (el: {
+                _id: React.Key | null | undefined;
+                genre:
+                  | string
+                  | number
+                  | boolean
+                  | React.ReactElement<
+                      any,
+                      string | React.JSXElementConstructor<any>
+                    >
+                  | Iterable<React.ReactNode>
+                  | React.ReactPortal
+                  | null
+                  | undefined;
+              }) => (
+                <option key={el._id}> {el.genre} </option>
+              )
+            )}
+          </select>
+
+          <input
+            type="submit"
+            value="Filter"
+            className="bg-purple-400 py-1 text-white rounded text-center ml-1 px-4"
+          />
         </form>
       </div>
 

@@ -7,6 +7,12 @@ export const api = createApi({
     endpoints: (builder) => ({
         getAllBooks: builder.query({
             query: () => "/allBooks"
+        }),
+        getPublicationYear: builder.query({
+            query: () => "/getPublicationyear"
+        }),
+        getGente : builder.query({
+            query: () => "/getGenre"
         })
     })
 })
@@ -16,4 +22,4 @@ export const api = createApi({
 
 
 
-export const { useGetAllBooksQuery } = api
+export const { useGetAllBooksQuery, useGetPublicationYearQuery, useGetGenteQuery } = api
