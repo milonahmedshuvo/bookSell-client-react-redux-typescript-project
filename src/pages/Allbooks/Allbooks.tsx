@@ -1,6 +1,6 @@
 import React from "react";
 import { useGetAllBooksQuery } from "../../redux/Feature/api/apiSlice";
-import { setSearchData } from "../../redux/Feature/book/bookSlice";
+import { setGenre, setPublicationYear, setSearchData } from "../../redux/Feature/book/bookSlice";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import { IBooks } from "../../types/globalTypes";
 import Allbook from "./Allbook";
@@ -31,8 +31,11 @@ const Allbooks = () => {
     const publicationYear = target.publicationYear.value
     const genre = target.genre.value
     console.log(publicationYear, genre)
+    dispatch(setPublicationYear(publicationYear))
+    dispatch(setGenre(genre))
   }
 
+  
 
   const bookAuthor = data.filter((book: IBooks) => book.author === search);
   const bookTitle = data.filter((book: IBooks) => book.title === search);
