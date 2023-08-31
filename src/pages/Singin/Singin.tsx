@@ -1,9 +1,12 @@
+import { useLocation, useNavigate } from "react-router-dom";
 import singin from "../../image/singin.jpg";
 import { userlogin } from "../../redux/Feature/userVerify/userSlice";
-import { useAppDispatch } from "../../redux/hooks";
+import { useAppDispatch, useAppSelector } from "../../redux/hooks";
+import { useEffect } from "react";
 
 const Singin = () => {
 const dispatch = useAppDispatch()
+const {user, isLoading} = useAppSelector((state) => state.users)
     
     const handleSingup = (event: React.SyntheticEvent) => {
         event.preventDefault();
@@ -16,6 +19,18 @@ const dispatch = useAppDispatch()
         console.log( email, password);
         dispatch(userlogin({email:email, password: password}))
       };
+
+
+      const location = useLocation();
+      const navigate = useNavigate();
+      const from = location.state?.from?.pathname || '/';
+
+      useEffect(() => {
+        if(user?.email && !isLoading){
+         navigate(from, {replace: true} )
+        }  
+     },[user?.email, isLoading ])
+
 
 
 

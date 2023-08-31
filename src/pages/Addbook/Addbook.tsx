@@ -1,9 +1,19 @@
 import React from "react"
+import { useAppSelector } from "../../redux/hooks"
+import { useNewbookpostMutation } from "../../redux/Feature/api/apiSlice"
 
 
 const Addbook = () => {
+     const { user, isLoading } = useAppSelector ((state) => state.users)
+     const [newbookData, { isError}] = useNewbookpostMutation()
+     if(isLoading){
+      return <p>Loading..</p>
+     }
+
+     console.log(isError)
 
 
+   
 const handledatapost = (event:React.SyntheticEvent) => {
       event.preventDefault()
           
@@ -26,10 +36,12 @@ const handledatapost = (event:React.SyntheticEvent) => {
         title,
         author,
         genre,
-        publication: publicationYear
+        publication: publicationYear,
+        email: user?.email
       }
 
       console.log(postdata)
+      newbookData( {data:postdata} )
 }
 
 

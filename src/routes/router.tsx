@@ -5,6 +5,7 @@ import Singin from '../pages/Singin/Singin';
 import Singup from '../pages/Singup/Singup';
 import Allbooks from '../pages/Allbooks/Allbooks';
 import Addbook from '../pages/Addbook/Addbook';
+import Privateroute from './Privateroute';
 
 
 const router = createBrowserRouter([
@@ -30,7 +31,7 @@ const router = createBrowserRouter([
             },
             {
                 path: "/addbook",
-                element: <Addbook/>
+                element: <Privateroute> <Addbook/> </Privateroute>
             }
         ]
     }

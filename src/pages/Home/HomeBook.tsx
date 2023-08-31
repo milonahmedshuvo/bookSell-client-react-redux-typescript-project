@@ -23,7 +23,7 @@ const HomeBook = (props: BookProps) => {
     <div  className="mb-20">
 
          <div className="flex justify-center">
-             <img className=" h-[350px]"  src={image} alt="" />
+             <img className=" w-3/5 h-[350px]"  src={image} alt="" />
          </div>
 
          <div>

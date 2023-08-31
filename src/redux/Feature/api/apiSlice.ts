@@ -13,6 +13,13 @@ export const api = createApi({
         }),
         getGente : builder.query({
             query: () => "/getGenre"
+        }),
+        newbookpost: builder.mutation({
+            query: ({data}) => ({
+                url: "/addnewbook",
+                method: "POST",
+                body: data
+            })
         })
     })
 })
@@ -22,4 +29,4 @@ export const api = createApi({
 
 
 
-export const { useGetAllBooksQuery, useGetPublicationYearQuery, useGetGenteQuery } = api
+export const { useGetAllBooksQuery, useGetPublicationYearQuery, useGetGenteQuery, useNewbookpostMutation } = api

@@ -81,8 +81,6 @@ const Allbooks = () => {
          products =bookyears
    }else if (bookGenre.filter((e: { genre: string | null; }) => e.genre === genre).length > 0 ) {
          products = booksGenre
-   }else{
-        products = data
    }
 
 
