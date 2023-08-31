@@ -67,6 +67,7 @@ const handleSingout = () =>{
         <div className="navbar-end">
           
              <Link to="/allbooks" className='mr-3'> All Books</Link>
+             <Link to="/addbook" className='mr-3'>Add New</Link>
 
             {
               !user.email && <>
@@ -80,6 +81,7 @@ const handleSingout = () =>{
                <Link to="" onClick={handleSingout} className='mr-4'> Singout</Link>
               </>
              }
+             
 
 
         </div>

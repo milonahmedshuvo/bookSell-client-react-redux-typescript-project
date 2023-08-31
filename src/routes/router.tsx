@@ -4,6 +4,7 @@ import Home from '../pages/Home/Home';
 import Singin from '../pages/Singin/Singin';
 import Singup from '../pages/Singup/Singup';
 import Allbooks from '../pages/Allbooks/Allbooks';
+import Addbook from '../pages/Addbook/Addbook';
 
 
 const router = createBrowserRouter([
@@ -26,6 +27,10 @@ const router = createBrowserRouter([
             {
                 path: "/allbooks",
                 element: <Allbooks/>
+            },
+            {
+                path: "/addbook",
+                element: <Addbook/>
             }
         ]
     }

@@ -76,10 +76,13 @@ const Allbooks = () => {
   const bookyears = data.filter((book: { publication: any; }) => book.publication === publicationYear)
   const booksGenre = data.filter((book: { genre: string | null; }) => book.genre === genre)
  
+  
    if(bookyears.filter((e: { publication: string | null; }) => e.publication === publicationYear).length > 0 ){
          products =bookyears
-   }else if (bookGenre) {
+   }else if (bookGenre.filter((e: { genre: string | null; }) => e.genre === genre).length > 0 ) {
          products = booksGenre
+   }else{
+        products = data
    }
 
 
