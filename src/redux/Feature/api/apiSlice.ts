@@ -20,6 +20,9 @@ export const api = createApi({
                 method: "POST",
                 body: data
             })
+        }),
+        getOneBook: builder.query({
+            query: (id) => `/getOneProdcut/${id}`
         })
     })
 })
@@ -29,4 +32,4 @@ export const api = createApi({
 
 
 
-export const { useGetAllBooksQuery, useGetPublicationYearQuery, useGetGenteQuery, useNewbookpostMutation } = api
+export const { useGetAllBooksQuery, useGetPublicationYearQuery, useGetGenteQuery, useNewbookpostMutation, useGetOneBookQuery } = api

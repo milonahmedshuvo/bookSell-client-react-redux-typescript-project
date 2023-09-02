@@ -1,12 +1,15 @@
 // import { IBooks } from "../../types/globalTypes"
 
+import { Link } from "react-router-dom"
+
 interface IBooks  {
     image: string,
     title: string,
     author: string,
     genre: string,
     publication: string,
-    comments:string[]
+    comments:string[],
+    _id?: string
 }
 
 interface BookProps {
@@ -15,16 +18,18 @@ interface BookProps {
 
 
 const HomeBook = (props: BookProps) => {
-  const {image, title, author, genre, publication } = props.book
+  const {image, title, author, genre, publication, _id} = props.book
     
 
 
   return (
     <div  className="mb-20">
 
-         <div className="flex justify-center">
-             <img className=" w-3/5 h-[350px]"  src={image} alt="" />
-         </div>
+       <Link to={`/bookdatails/${_id}`} >
+          <div className="flex justify-center">
+            <img className=" w-3/5 h-[350px]" src={image} alt="" />
+          </div>
+       </Link>
 
          <div>
            <p className="text-center text-xl mt-5">{title}</p>
