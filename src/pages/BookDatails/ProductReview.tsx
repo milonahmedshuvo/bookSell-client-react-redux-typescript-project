@@ -1,6 +1,7 @@
 const ProductReview = () => {
   return (
     <div className=" mt-20">
+
       <form onSubmit={handleReview} className="flex justify-center">
         <input
           type="text"
@@ -13,6 +14,8 @@ const ProductReview = () => {
           className="bg-blue-400 py-1 text-white ml-1 px-6 rounded"
         />
       </form>
+
+      
     </div>
   );
 };
