@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useGetOneBookQuery } from "../../redux/Feature/api/apiSlice";
 import { useAppSelector } from "../../redux/hooks";
+import ProductReview from "./ProductReview";
 
 const BookDatails = () => {
   const { id } = useParams();
@@ -35,6 +36,7 @@ const BookDatails = () => {
 
       <button className="btn btn-sm  btn-error w-1/2 text-white">Delete</button>
       </div>
+      <ProductReview></ProductReview>
     </div>
   );
 };
