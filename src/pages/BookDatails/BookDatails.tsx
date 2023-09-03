@@ -30,13 +30,13 @@ const BookDatails = () => {
       <div className="flex justify-between w-1/5 mx-auto mt-3 ">
       
        {
-        email === user.email ? <button className="btn btn-sm btn-primary w-1/2 mr-2">Edit</button> : <button className="btn btn-sm btn-primary w-1/2 mr-2" disabled >Edit</button>
+        email === user?.email ? <button className="btn btn-sm btn-primary w-1/2 mr-2">Edit</button> : <button className="btn btn-sm btn-primary w-1/2 mr-2" disabled >Edit</button>
        }
 
 
       <button className="btn btn-sm  btn-error w-1/2 text-white">Delete</button>
       </div>
-      <ProductReview></ProductReview>
+      <ProductReview id={id}></ProductReview>
     </div>
   );
 };

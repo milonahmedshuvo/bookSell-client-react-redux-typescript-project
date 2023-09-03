@@ -1,16 +1,18 @@
 import React from "react"
 import { useAppSelector } from "../../redux/hooks"
 import { useNewbookpostMutation } from "../../redux/Feature/api/apiSlice"
+import { toast } from "react-hot-toast"
 
 
 const Addbook = () => {
      const { user, isLoading } = useAppSelector ((state) => state.users)
-     const [newbookData, { isError}] = useNewbookpostMutation()
+     const [newbookData, {data, isError}] = useNewbookpostMutation()
      if(isLoading){
       return <p>Loading..</p>
      }
 
      console.log(isError)
+     console.log("server book add:", data)
 
 
    
@@ -41,9 +43,12 @@ const handledatapost = (event:React.SyntheticEvent) => {
       }
 
       console.log(postdata)
-      newbookData( {data:postdata} )
+      newbookData( { data:postdata } )
 }
 
+if(data?.acknowledged === true){
+  toast.success("Succesful add book")
+}
 
   return (
     <div>

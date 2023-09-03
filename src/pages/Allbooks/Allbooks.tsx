@@ -1,6 +1,6 @@
 import React from "react";
 import {
-  useGetAllBooksQuery,
+  useAllbookproductrouteQuery,
   useGetGenteQuery,
   useGetPublicationYearQuery,
 } from "../../redux/Feature/api/apiSlice";
@@ -14,7 +14,8 @@ import { IBooks } from "../../types/globalTypes";
 import Allbook from "./Allbook";
 
 const Allbooks = () => {
-  const { data, isLoading } = useGetAllBooksQuery(undefined);
+  // const { data, isLoading } = useGetAllBooksQuery(undefined);
+  const { data, isLoading } = useAllbookproductrouteQuery(undefined)
   const { data:years } = useGetPublicationYearQuery(undefined);
   const { data: genres } = useGetGenteQuery(undefined);
 

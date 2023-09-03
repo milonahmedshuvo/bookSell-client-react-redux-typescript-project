@@ -4,7 +4,7 @@ import { useEffect } from "react"
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { useAppDispatch } from "./redux/hooks";
 import { setLoading, setuserEmail, setuserName } from "./redux/Feature/userVerify/userSlice";
-
+import toast, { Toaster } from 'react-hot-toast';
 
 
 const auth = getAuth();
@@ -26,8 +26,7 @@ function App() {
           dispatch(setuserName(user.displayName))                              
         } else {
          console.log("user nai")
-         dispatch(setLoading(false))
-         
+         dispatch(setLoading(false))         
         }
 
 
@@ -40,6 +39,7 @@ function App() {
   return (
     <>
     <RouterProvider router={router} />
+    <Toaster/>
     </>
   )
 }
