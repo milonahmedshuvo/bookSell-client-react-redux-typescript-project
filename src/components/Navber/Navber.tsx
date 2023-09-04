@@ -66,6 +66,7 @@ const handleSingout = () =>{
 
 
 
+
         <div className="navbar-end">
           
              <Link to="/allbooks" className='mr-3'> All Books</Link>
