@@ -80,7 +80,7 @@ const Allbooks = () => {
   
    if(bookyears.filter((e: { publication: string | null; }) => e.publication === publicationYear).length > 0 ){
          products =bookyears
-   }else if (bookGenre.filter((e: { genre: string | null; }) => e.genre === genre).length > 0 ) {
+   }else if (booksGenre.filter((e: { genre: string | null; }) => e.genre === genre).length > 0 ) {
          products = booksGenre
    }
 

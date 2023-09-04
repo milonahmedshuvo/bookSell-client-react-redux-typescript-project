@@ -50,7 +50,9 @@ const handleSingout = () =>{
 
 
           </div>
-          <a className="btn btn-ghost normal-case text-xl">BookSell</a>
+          <Link to="/">
+          <a className="btn btn-ghost normal-case text-xl text-blue-400 font-serif">BookSell</a>
+          </Link>
         </div>
         <div className="navbar-center hidden lg:flex">
           

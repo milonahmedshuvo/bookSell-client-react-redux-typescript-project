@@ -39,6 +39,20 @@ export const api = createApi({
                 body: data
             }),
             invalidatesTags: ['postData']
+        }),
+        bookDelete: builder.mutation({
+            query: (id) => ({
+                url: `${id}`,
+                method:"DELETE"
+            })            
+        }),
+        bookupdate: builder.mutation({
+            query: ({id, data}) => ({
+                url: `/bookupdate/${id}`,
+                method:"PATCH",
+                body: data
+            }),
+            invalidatesTags: ['postData']
         })
     })
 })
@@ -48,4 +62,4 @@ export const api = createApi({
 
 
 
-export const { useGetAllBooksQuery, useGetPublicationYearQuery, useGetGenteQuery, useNewbookpostMutation, useGetOneBookQuery, useUpdateCommentsMutation, useAllbookproductrouteQuery } = api
+export const { useGetAllBooksQuery, useGetPublicationYearQuery, useGetGenteQuery, useNewbookpostMutation, useGetOneBookQuery, useUpdateCommentsMutation, useAllbookproductrouteQuery, useBookDeleteMutation, useBookupdateMutation } = api
